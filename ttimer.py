@@ -27,8 +27,8 @@ s_text=tk.Text(start_frame,height=5, width=25,font=text_font)
 s_text.place(relx=0.35,rely=0.1,relwidth=0.3,relheight=0.2)
 
 #directions label
-s_title=tk.Label(start_frame,height=7,width=50,text="Enter your time and press Start",bg=background)
-s_title.place(relx=0.35,rely=0.5,relwidth=0.3,relheight=0.2)
+s_title=tk.Label(start_frame,text="Enter your time and press Start",bg=background)
+s_title.place(relx=0.25,rely=0.5,relwidth=0.5,relheight=0.2)
 
 
 def timer():
