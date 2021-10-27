@@ -13,7 +13,6 @@ background2='#000000'
 start_frame=tk.Frame(r,bg=background)
 time_frame=tk.Frame(r,bg=background)
 
-
 #button to enter time and switch frames
 #on start frame, records time, calls timer frame
 s_button=tk.Button(start_frame,text="Start",command=lambda:timer())             
@@ -32,18 +31,16 @@ s_title=tk.Label(start_frame,text="Enter your time and press Start",bg=backgroun
 s_title.place(relx=0.25,rely=0.5,relwidth=0.5,relheight=0.2)
 
 
-
-
 #timer frame
 def timer():
     inputVal=int(s_text.get("1.0","end-1c"))
     #print(inputVal)
     time_frame.place(relx=0.05,rely=0.05,relwidth=0.9,relheight=0.9)
     start_frame.place_forget()
-    #countdown label found on timer frame
-    countdown=tk.Label(time_frame,text=inputVal)
-    countdown.place(relx=0.35,rely=0.1,relwidth=0.3,relheight=0.2)
-    countdown(inputVal,countdown)
+    #c_box label found on timer frame
+    c_box=tk.Label(time_frame,text=inputVal)
+    c_box.place(relx=0.35,rely=0.1,relwidth=0.3,relheight=0.2)
+    countdown(inputVal)
  
 #starting frame
 def start(): 
@@ -53,15 +50,14 @@ def start():
 
 
 #countdown timer
-def countdown(inputVal,countdown):
+def countdown(inputVal):
     print(inputVal)
     #timer countdown, appear on time_frame, called by timer
     if inputVal > 0:
         inputVal-=1
-        countdown.set(inputVal)
-        r.after(1000,lambda:countdown(inputVal,countdown))
+        r.after(1000,lambda:countdown(inputVal))
     else:
-        close()
+        print("timer ended")
 
 
 if __name__=="__main__":
