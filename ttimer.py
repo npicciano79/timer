@@ -38,8 +38,8 @@ def timer():
     time_frame.place(relx=0.05,rely=0.05,relwidth=0.9,relheight=0.9)
     start_frame.place_forget()
     #c_box label found on timer frame
-    c_box=tk.Label(time_frame,text=inputVal)
-    c_box.place(relx=0.35,rely=0.1,relwidth=0.3,relheight=0.2)
+    #c_box=tk.Label(time_frame,text=inputVal)
+    #c_box.place(relx=0.35,rely=0.1,relwidth=0.3,relheight=0.2)
     countdown(inputVal)
  
 #starting frame
@@ -51,13 +51,18 @@ def start():
 
 #countdown timer
 def countdown(inputVal):
-    print(inputVal)
+    #print(inputVal)
+    c_box=tk.Label(time_frame,text=inputVal,font=text_font)
+    c_box.place(relx=0.35,rely=0.1,relwidth=0.3,relheight=0.2)
     #timer countdown, appear on time_frame, called by timer
     if inputVal > 0:
         inputVal-=1
         r.after(1000,lambda:countdown(inputVal))
     else:
-        print("timer ended")
+        endtimer()
+
+def endtimer():
+    print("timer has ended")
 
 
 if __name__=="__main__":
