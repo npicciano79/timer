@@ -12,6 +12,7 @@ background2='#000000'
 #create 2 frames
 start_frame=tk.Frame(r,bg=background)
 time_frame=tk.Frame(r,bg=background)
+restart_frame=tk.Frame(r,bg=background)
 
 #button to enter time and switch frames
 #on start frame, records time, calls timer frame
@@ -46,6 +47,7 @@ def timer():
 def start(): 
     start_frame.place(relx=0.05,rely=0.05,relwidth=0.9,relheight=0.9)
     time_frame.place_forget()
+    restart_frame.place_forget()
 
 
 
@@ -62,6 +64,19 @@ def countdown(inputVal):
         endtimer()
 
 def endtimer():
+    time_frame.place_forget()
+    restart_frame.place(relx=0.05,rely=0.05,relwidth=0.9,relheight=0.9)
+    restart_label=tk.Label(restart_frame,text="Select Restart to restart timer or Exit to end", bg=background)
+    restart_label.place(relx=0.2, rely=0.2, relheight=0.3, relwidth=0.7)
+
+    #button options restart or exit
+    b_restart=tk.Button(restart_frame,text="Restart",command=lambda:start)
+    b_restart.place(relx=0.2,rely=0.6,relwidth=0.3,relheight=0.2)
+
+
+
+
+
     print("timer has ended")
 
 
